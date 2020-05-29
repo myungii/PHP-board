@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title></title>
 	<script type="text/javascript">
-		setTimeout( "location.href='#' ", 3000) ; 
+		setTimeout( "location.href='list.php' ", 3000) ; 
 	</script>
 </head>
 <body>
