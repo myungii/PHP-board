@@ -137,7 +137,7 @@
                             <?php echo $board['userid']; ?>
                         </td>
                         <td>
-                            <a href="#">
+                            <a href="detail.php?seq=<?=$board['seq'];?>">
                                 <?php echo $board['title']; ?>
                             </td>
                         </td>

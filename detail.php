@@ -1,3 +1,4 @@
+<?php include  $_SERVER['DOCUMENT_ROOT']."/db.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,6 @@
 </script>
 </head>
 <body>
-
 	<div class="container">
 		<h2>자유게시물</h2>
 		<p>나만의 자유로운 게시물을 작성해보세요!</p>
@@ -32,41 +32,46 @@
 				<col width="15%" />
 				<col width="35%" />
 			</colgroup>
-
+			<?php
+	if(isset($_GET['seq'])){$seq = $_GET['seq'];}
+	$query = mq("select * from board where seq = $seq");
+	$dt = mysqli_fetch_array($query);	
+	$update = mq("update board set hit = hit + 1 where seq = $seq");
+	$setHit = mysqli_query($db, $update);
+	?>
 			<tbody>
 				<tr>
 
 					<th scope="row">조회수</th>
-					<td>${dto.hit }</td>
+					<td><?=$dt['hit']?></td>
 					<th scope="row">추천수</th>
-					<td>${dto.recommend }</td>
+					<td><?=$dt['recommend']?></td>
 				</tr>
 				<tr>
 					<th scope="row">작성아이디</th>
-					<td>${dto.userid}</td>
+					<td><?=$dt['userid']?></td>
 					<th scope="row">작성날짜</th>
-					<td>${dto.wdate}</td>
+					<td><?=$dt['wdate']?></td>
 				</tr>
 				<tr>
 					<th scope="row">제목</th>
-					<td colspan="3">${dto.title}</td>
+					<td colspan="3"><?=$dt['title']?></td>
 				</tr>
 				<tr>
-					<td colspan="4">${dto.detail}</td>
+					<td colspan="4"><?=$dt['detail']?></td>
 				</tr>
 			</tbody>
 		</table>
 
 		<p class="text-right">
 			<button type="button" class="btn btn-outline-primary"
-				onclick="location.href='/board/list'">목록으로</button>
+				onclick="location.href='list.php'">목록으로</button>
 			<button type="button" class="btn btn-outline-dark"
-				onclick="location.href='/board/delete?seq=${dto.seq}'">삭제하기</button>
+				onclick="location.href='delete.php?seq=<?=$dt['seq']?>'">삭제하기</button>
 			<button type="button" class="btn btn-outline-dark"
-				onclick="location.href='/board/preedit?seq=${dto.seq}'">수정하기</button>
+				onclick="location.href='/preedit.php?seq=<?=$dt['seq']?>'">수정하기</button>
 		</p><br>
 		
-		 <c:import url="/reply/list"/>
 		
 	</div>
 
