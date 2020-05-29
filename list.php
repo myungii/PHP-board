@@ -188,7 +188,7 @@
                     <button
                         type="button"
                         class="btn btn-outline-primary"
-                        onclick="location.href='#'">글쓰기</button>
+                        onclick="location.href='write.php'">글쓰기</button>
                     <button
                         type="button"
                         class="btn btn-outline-dark"
