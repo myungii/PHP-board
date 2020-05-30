@@ -69,7 +69,7 @@
 			<button type="button" class="btn btn-outline-dark"
 				onclick="location.href='delete.php?seq=<?=$dt['seq']?>'">삭제하기</button>
 			<button type="button" class="btn btn-outline-dark"
-				onclick="location.href='/preedit.php?seq=<?=$dt['seq']?>'">수정하기</button>
+				onclick="location.href='preedit.php?seq=<?=$dt['seq']?>'">수정하기</button>
 		</p><br>
 		
 		

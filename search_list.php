@@ -98,7 +98,8 @@
              if(isset($_GET['keyword'])){
                 $sval = $_GET['keyword'];
              }
-             echo ("<script>console.log('skey 값 : '.$skey)</script>");
+             echo ("<script>console.log('skey 값 : ".$skey."');</script>");
+             echo ("<script>console.log('sval 값 : ".$sval."');</script>");
               
              //검색
              if($skey == null || $skey == "" || $sval == null){
@@ -119,7 +120,7 @@
              echo "<script>console.log('returnpage : ".$returnpage."');</script>";
              
              //페이징+검색 쿼리문
-              $sql2 = mq("select @rownum := @rownum + 1 as rownum, board.*". 
+              $sql2 = mq("select @rownum := @rownum + 1 as rownum, board.* ". 
               "from board, (select @rownum := $start) r ".$squery." order by board.seq desc limit $startpage, 10");
               
               //총 갯수

@@ -3,7 +3,7 @@
 <?php
 
 if(isset($_GET['seq'])){$seq = $_GET['seq'];}
-$query = mq("delete from board where seq = $seq");
+$query = mq("delete from board where seq = ".$seq);
 $delete = mysqli_query($db, $query);
 
 ?>
